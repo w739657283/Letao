@@ -112,3 +112,8 @@ html,body{
   width:45%;
   height: 400px;
 }
+
+/* 表格部分 */
+.lt_content thead tr th{
+  text-align: center;
+}
