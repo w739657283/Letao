@@ -54,25 +54,38 @@
         <li><a href="#">管理系统</a></li>
         <li class="active">首页</li>
       </ol>
+      <div class="lt_content">
+        <div class="echart_l pull-left"></div>
+        <div class="echart_r pull-left"></div>
+      </div>
     </div>
     
    </div>
-<!-- 模态框 -->
-<!-- 小 -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
 
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
+<!-- 模态框 -->
+<div class="modal fade" tabindex="-1" id="modal_lt">
+  <div class="modal-dialog  modal-sm" >
     <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p>你真的要退出吗 QAQ  ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+        <button type="button" class="btn btn-primary btn_loginOut">退出</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 </body>
 <script src="js/jquery/jquery.js" ></script>
 <script src="js/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="js/nprogress/nprogress.js"></script>
+<script src="js/echarts/echarts.common.min.js"></script>
 <script src="js/conmmon.js"></script>
 <script src="js/index.js" ></script>
 </html>

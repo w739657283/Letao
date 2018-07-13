@@ -37,11 +37,13 @@ html,body{
 /* //首页 */
 .left_lt{
   padding-left: 180px;
+  transition: all 1s;
 }
 
 .lt_left{
   width: 180px;
   height: 100%;
+  transition: all 1s;
   position: absolute;
   left: 0;
   top: 0;
@@ -101,4 +103,12 @@ html,body{
 
 .aaaaa{
   padding-left: 0px;
+}
+.lt_content .echart_l{
+  width:45%;
+  height: 400px;
+}
+.lt_content .echart_r{
+  width:45%;
+  height: 400px;
 }

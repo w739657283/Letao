@@ -1,6 +1,8 @@
 
 $(function(){
 
+
+  
   //进度条
   $(document).ajaxStart(function () {
       NProgress.start();
@@ -24,9 +26,22 @@ $(function(){
 
   //退出功能
   $("#nav_top2").on("click",function(){
+    $("#modal_lt").modal("show");
     
   })
-
+//确认退出功能 
+  $(".btn_loginOut").on("click",function(){
+    $.ajax({
+      type: "get",
+      url:"/employee/employeeLogout",
+      success: function(info){
+        if(info.success){
+          location.href = "login.html";
+        }
+        
+      }
+    })
+  })
 
 
 })
