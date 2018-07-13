@@ -54,6 +54,32 @@
         <li><a href="#">管理系统</a></li>
         <li class="active">一级分类</li>
       </ol>
+
+         <!-- 内容部分 -->
+    <div class="lt_content " >
+      <div class="modal-header">
+        <button class="btn btn-default" >添加分类</button>
+      </div>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th width="20%" >序号</th>
+              <th width="80%" >分类名称</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>户外管</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 分页 -->
+        <div class="text-right">
+          <ul id="pagintor"></ul>
+        </div>
+      </div>
+      </div>
     </div>
     
    </div>
@@ -79,7 +105,15 @@
 <script src="js/jquery/jquery.js" ></script>
 <script src="js/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="js/artTemplate/template-web.js"></script>
 <script src="js/nprogress/nprogress.js"></script>
 <script src="js/conmmon.js"></script>
-<script src="js/index.js" ></script>
+<script src="js/first.js" ></script>
+
+<script type="text/template" id="tpl" >
+    <tr>
+      <td>1</td>
+      <td>户外管</td>
+    </tr>
+</script>
 </html>
