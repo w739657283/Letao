@@ -117,3 +117,10 @@ html,body{
 .lt_content thead tr th{
   text-align: center;
 }
+.lt_content tbody tr td {
+  vertical-align: middle;
+}
+
+.add_img{
+  padding: 10px;
+}
