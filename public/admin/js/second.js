@@ -43,12 +43,12 @@ $(function () {
         var category = $(this).text();
         console.log(id, category);
         //渲染到 隐藏域
-        $("#addCategoryId").val(id);
+        $("[name='categoryId']").val(id);
         $(".check_first").text(category);
 
         //手动设置通过校验
         $("form").data("bootstrapValidator").updateStatus("categoryId","VALID");
-    })
+    })  
 
     //添加文件 
     $("#fileupload").fileupload({
@@ -63,8 +63,9 @@ $(function () {
         }
     });
 
-    //表单校验
+    // // //表单校验
     $("form").bootstrapValidator({
+        excluded: [],//不校验的内容
         //配置校验时的图标,
         feedbackIcons: {
             //校验成功的图标
@@ -72,7 +73,7 @@ $(function () {
             invalid: 'glyphicon glyphicon-thumbs-down',
             validating: 'glyphicon glyphicon-refresh'
         },
-        //3. 指定校验字段
+        //3. 指定校验字段 categoryId
         fields: {
             //校验用户名，对应name表单的name属性
             categoryId: {
@@ -81,10 +82,6 @@ $(function () {
                     notEmpty: {
                         message: '一级分类不能为空'
                     },
-                    callback: {
-                        message: '一级分类不能为空'
-                    }
-
                 }
             },
             brandName: {
@@ -99,7 +96,7 @@ $(function () {
                 validators: {
                     //不能为空
                     notEmpty: {
-                        message: '二级分类图片不能为空'
+                        message: '图片不能为空'
                     },
                 }
             }
@@ -109,19 +106,31 @@ $(function () {
     });
 
 
-    $(".btn_category").on("click",function(){
-        console.log( $("form").serialize() );
-    })
-    //表单校验通过后
-    $("form").on('success.form.bv', function (e) {
+
+
+    $("form").on("success.form.bv",function(e){
         e.preventDefault();
         //发送数据
-        console.log( 11111111 );
-        console.log( $("form").serialize() );
-        // $.ajax({
-        //     type: "post",
-        //     url: "/category/addSecondCategory",
-            
-        // })
+        $.ajax({
+            type: "post",
+            url: "/category/addSecondCategory",
+            data: $("form").serialize(),
+            success: function(info){
+                console.log( info );
+                page=1;
+                render();
+
+                 //3. 重置内容和样式
+                $("form")[0].reset();
+                $("form").data("bootstrapValidator").resetForm();
+
+                //4. 重置下拉框组件和图片
+                $(".check_first").text("请选择一级分类");
+                $("[name='categoryId']").val('');
+                $(".add_img").attr("src", "image/none.png");
+                $("[name='brandLogo']").val('');
+            }
+        })
     })
+  
 })

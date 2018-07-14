@@ -1,85 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="js/bootstrap-validator/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="js/nprogress/nprogress.css">
-    <link rel="stylesheet" href="css/conmon.css">
-    <title>商品管理</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="js/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="js/nprogress/nprogress.css">
+  <link rel="stylesheet" href="css/conmon.css">
+  <title>商品管理</title>
 </head>
+
 <body class="left_lt">
 
   <!-- 左边导航栏 -->
-   <div class="lt_left">
-     <div ><a class="left1" href="index.html">乐淘商城</a></div>
-     <div class="left2">
-       <img src="image/111.jpg" alt="">
-       <div>超级管理员</div>
-     </div>
-     <div class="left3">
-       <ul>
-         <li><a href="user.html">
-           <span class="glyphicon glyphicon-user"></span>
+  <div class="lt_left">
+    <div>
+      <a class="left1" href="index.html">乐淘商城</a>
+    </div>
+    <div class="left2">
+      <img src="image/111.jpg" alt="">
+      <div>超级管理员</div>
+    </div>
+    <div class="left3">
+      <ul>
+        <li>
+          <a href="user.html">
+            <span class="glyphicon glyphicon-user"></span>
             用户管理
-         </a></li>
-         <li><a id="lt_cate" href='javascript:;'> 
-           <span class="glyphicon glyphicon-list"></span>
-           分类管理</a>
-           <div class="left_cate" style="display:none;">
-             <a href='first.html'>一级分类</a>
-             <a href='second.html'>二级分类</a>
-           </div>
-         </li>
-         <li><a class="new" href="product.html">
-           <span class="glyphicon glyphicon-tags"></span> 
-           商品管理</a></li>
-       </ul>
-     </div>
-   </div>
+          </a>
+        </li>
+        <li>
+          <a id="lt_cate" href='javascript:;'>
+            <span class="glyphicon glyphicon-list"></span>
+            分类管理</a>
+          <div class="left_cate" style="display:none;">
+            <a href='first.html'>一级分类</a>
+            <a href='second.html'>二级分类</a>
+          </div>
+        </li>
+        <li>
+          <a class="new" href="product.html">
+            <span class="glyphicon glyphicon-tags"></span>
+            商品管理</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 
-   <!-- 右边页面 -->
-   <div class="lt_right">
-     <!-- 顶部 -->
+  <!-- 右边页面 -->
+  <div class="lt_right">
+    <!-- 顶部 -->
     <div class="right_top">
-      <a id="nav_top1" href='javascript:;' class="top_l pull-left"><span class="glyphicon glyphicon-align-justify"></span></a>
-      <a id="nav_top2" href='javascript:;' class="top_r pull-right"><span class="glyphicon glyphicon-log-out"></span></a>
+      <a id="nav_top1" href='javascript:;' class="top_l pull-left">
+        <span class="glyphicon glyphicon-align-justify"></span>
+      </a>
+      <a id="nav_top2" href='javascript:;' class="top_r pull-right">
+        <span class="glyphicon glyphicon-log-out"></span>
+      </a>
     </div>
     <!-- 路径导航 面包屑 -->
     <div class="container">
       <ol class="breadcrumb">
-        <li><a href="#">管理系统</a></li>
+        <li>
+          <a href="#">管理系统</a>
+        </li>
         <li class="active">商品管理</li>
       </ol>
+
+      <!-- 内容部分 -->
+      <div class="lt_content ">
+        <div class="modal-header">
+          <button class="btn btn-default" id="btn-add">添加分类</button>
+        </div>
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th width="10%">序号</th>
+              <th width="25%">商品名称</th>
+              <th width="25%">商品描述</th>
+              <th width="10%">商品库存</th>
+              <th width="10%">商品尺寸</th>
+              <th width="10%">商品状态</th>
+              <th width="10%">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
+              <td>描述123123</td>
+              <td>44</td>
+              <td>35-56</td>
+              <td>已上架</td>
+              <td>
+                <button class="btn btn-danger" >下架</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- 分页 -->
+        <div class="text-right">
+          <ul id="paginator"></ul>
+        </div>
+      </div>
     </div>
-    
-   </div>
-<!-- 模态框 -->
-<div class="modal fade" tabindex="-1" id="modal_lt">
-  <div class="modal-dialog modal-sm" >
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">温馨提示</h4>
+  </div>
+
+
+
+
+  <!-- 模态框 -->
+  <div class="modal fade" tabindex="-1" id="modal_lt">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p>你真的要退出吗 QAQ ?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+          <button type="button" class="btn btn-primary btn_loginOut">退出</button>
+        </div>
       </div>
-      <div class="modal-body">
-        <p>你真的要退出吗 QAQ  ?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
-        <button type="button" class="btn btn-primary btn_loginOut">退出</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
 </body>
-<script src="js/jquery/jquery.js" ></script>
+<script src="js/jquery/jquery.js"></script>
 <script src="js/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="js/artTemplate/template-web.js"></script>
 <script src="js/nprogress/nprogress.js"></script>
 <script src="js/conmmon.js"></script>
-<script src="js/index.js" ></script>
+<script src="js/product.js"></script>
+
+<script type="text/template" id="tpl" >
+  {{ each rows v i }}
+  <tr>
+      <td>1</td>
+      <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
+      <td>描述123123</td>
+      <td>44</td>
+      <td>35-56</td>
+      <td>已上架</td>
+      <td>
+        <button class="btn btn-danger" >下架</button>
+      </td>
+    </tr>
+  {{ /each }}
+</script>
 </html>
