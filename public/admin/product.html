@@ -73,7 +73,7 @@
       <!-- 内容部分 -->
       <div class="lt_content ">
         <div class="modal-header">
-          <button class="btn btn-default" id="btn-add">添加分类</button>
+          <button class="btn btn-default" id="btn-add">添加商品</button>
         </div>
         <table class="table table-bordered text-center">
           <thead>
@@ -135,10 +135,82 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+
+   <!-- 添加二级分类 -->
+   <div class="modal fade" tabindex="-1" id="addproduct">
+      <div class="modal-dialog ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">添加商品</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu1" data-toggle="dropdown" >
+                    <span class="check_first">选择二级分类</span>
+                    <span class="caret"></span>
+                  </button>
+                  <input type="hidden" name="brandId" >
+                  <ul id="query_parduct" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Action</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品名称">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="3" placeholder="输入商品描述" ></textarea>
+              </div>
+              <div class="form-group">
+                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品库存">
+              </div>
+              <div class="form-group">
+                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品尺码(32-45)">
+              </div>
+              <div class="form-group">
+                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品原价">
+              </div>
+              <div class="form-group">
+                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品现价">
+              </div>
+
+              <div class="form-group">
+                <div class="fileupload_box">
+                  <label for="fileupload" class="btn btn-default">添加文件</label>
+                  <input type="file" class="form-control" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
+                </div>
+              </div>
+              <div class="form-group">
+                <img src="image/none.png" width="150" alt="" class="add_img">
+                <input type="hidden" name="brandLogo" class="form-control" id="add_logo">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                <button type="submit" class="btn btn-primary btn_category">添加</button>
+              </div>
+            </form>
+          </div>
+  
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
 </body>
 <script src="js/jquery/jquery.js"></script>
 <script src="js/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="js/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="js/artTemplate/template-web.js"></script>
 <script src="js/nprogress/nprogress.js"></script>
 <script src="js/conmmon.js"></script>
@@ -147,16 +219,21 @@
 <script type="text/template" id="tpl" >
   {{ each rows v i }}
   <tr>
-      <td>1</td>
-      <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
-      <td>描述123123</td>
-      <td>44</td>
-      <td>35-56</td>
-      <td>已上架</td>
+      <td>{{ v.id }}</td>
+      <td>{{ v.proName }}</td>
+      <td>{{ v.proDesc }}</td>
+      <td>{{ v.num }}</td>
+      <td>{{ v.size }}</td>
+      <td>{{ v.statu }}</td>
       <td>
-        <button class="btn btn-danger" >下架</button>
+        <button data-id"{{ v.id }}" class="btn btn-danger" >下架</button>
       </td>
     </tr>
+  {{ /each }}
+</script>
+<script type="text/html" id="tpll">
+  {{ each rows v i }}
+  <li><a data-id="{{ v.id }}" href="javascript:;">{{ v.proName }}</a></li>
   {{ /each }}
 </script>
 </html>
