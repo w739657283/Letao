@@ -154,7 +154,8 @@
                     <span class="check_first">选择二级分类</span>
                     <span class="caret"></span>
                   </button>
-                  <input type="hidden" name="brandId" >
+                    <input type="hidden" name="brandId" >
+                    <input type="hidden" name="statu" value="1" >
                   <ul id="query_parduct" class="dropdown-menu" aria-labelledby="dropdownMenu1">
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Action</a></li>
@@ -168,29 +169,31 @@
                 <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品名称">
               </div>
               <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="输入商品描述" ></textarea>
+                <textarea class="form-control" name="proDesc" rows="3" placeholder="输入商品描述" ></textarea>
               </div>
               <div class="form-group">
-                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品库存">
+                <input type="text" name="num" class="form-control" id="exampleInputPassword1" placeholder="输入商品库存">
               </div>
               <div class="form-group">
-                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品尺码(32-45)">
+                <input type="text" name="size" class="form-control" id="exampleInputPassword1" placeholder="输入商品尺码(32-45)">
               </div>
               <div class="form-group">
-                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品原价">
+                <input type="text" name="oldPrice" class="form-control" id="exampleInputPassword1" placeholder="输入商品原价">
               </div>
               <div class="form-group">
-                <input type="text" name="proName" class="form-control" id="exampleInputPassword1" placeholder="输入商品现价">
+                <input type="text" name="price" class="form-control" id="exampleInputPassword1" placeholder="输入商品现价">
               </div>
 
               <div class="form-group">
                 <div class="fileupload_box">
-                  <label for="fileupload" class="btn btn-default">添加文件</label>
-                  <input type="file" class="form-control" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
+                  <label for="fileupload" class="btn btn-default" id="addFile">添加文件</label>
+                  <input type="file" class="form-control" id="fileupload" name="pic1" data-url="/product/addProductPic" style="display: none;">
                 </div>
               </div>
               <div class="form-group">
-                <img src="image/none.png" width="150" alt="" class="add_img">
+                <div class="img_box">
+                   <!-- 上传图片显示位置 -->
+                </div>
                 <input type="hidden" name="brandLogo" class="form-control" id="add_logo">
               </div>
               <div class="modal-footer">
@@ -211,6 +214,8 @@
 <script src="js/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="js/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<script src="js/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="js/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="js/artTemplate/template-web.js"></script>
 <script src="js/nprogress/nprogress.js"></script>
 <script src="js/conmmon.js"></script>
@@ -233,7 +238,7 @@
 </script>
 <script type="text/html" id="tpll">
   {{ each rows v i }}
-  <li><a data-id="{{ v.id }}" href="javascript:;">{{ v.proName }}</a></li>
+  <li><a data-id="{{ v.id }}" href="javascript:;">{{ v.brandName }}</a></li>
   {{ /each }}
 </script>
 </html>
